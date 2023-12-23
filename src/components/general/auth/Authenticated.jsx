@@ -5,6 +5,7 @@ import {useAuthState} from "react-firebase-hooks/auth";
 import {useLocation, useParams} from "react-router";
 import {auth, database, firestore} from "../../../firebaseApp.js";
 import {useDocumentData} from "react-firebase-hooks/firestore";
+import {Login} from "./Login.jsx";
 
 export const UserMetaDataContext = createContext(undefined)
 
@@ -67,17 +68,18 @@ export const Authenticated = ({component: Component}) => {
     }
 
     if (!user) {
-        return <div>login </div>;
+        return <Login/>;
     }
-
+    console.log(user)
     // if the user is trying to get to a stanford page, without a stanford email, log them out
-    if (user.email.split("@")[1] !== "stanford.edu") {
-        // if the class is not the public class
-        if (qtrId !== 'public') {
-            auth().signOut();
-            return <div>login </div>;
-        }
-    }
+    // if (user.email.split("@")[1] !== "stanford.edu") {
+    //     console.log("logging out user",user, user.email)
+    //     // if the class is not the public class
+    //     if (qtrId !== 'public') {
+    //         auth().signOut();
+    //         return <Login/>;
+    //     }
+    // }
 
     console.log("################", userMetaData)
     return (<UserMetaDataContext.Provider value={{userMetaData, userMetaDataLoading}}>
