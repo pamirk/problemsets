@@ -2,7 +2,8 @@
 import {BrowserRouter} from "react-router-dom";
 import {Route, Switch} from "react-router";
 import {HomeRedirect} from "./HomeRedirect.jsx";
-import { Authenticated } from "./components/general/auth/Authenticated";
+import {Authenticated} from "./components/general/auth/Authenticated";
+import {Home} from "./home/Home.jsx";
 
 export const Router = () => {
 
@@ -11,7 +12,7 @@ export const Router = () => {
             <Switch>
 
                 <Route path="/:qtrId">
-                    <Authenticated />
+                    <Authenticated component={Home}/>
                 </Route>
 
                 <Route path="/">
