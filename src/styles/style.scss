@@ -1,0 +1,510 @@
+// @font-face {
+//   font-family: "Computer Modern";
+//   src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunss.otf');
+// }
+
+$sidebar-bg-color: #002154; //002154
+$submenu-bg-color: rgba(255, 255, 255, 0.05);
+$submenu-bg-color-collapsed: rgba(#0c1e35, 0.95);
+$sidebar-color: #b3b8d4;
+$highlight-color: #dee2ec;
+$icon-bg-color: rgba(255, 255, 255, 0.2);
+$icon-size: 35px;
+
+@import 'react-pro-sidebar/dist/scss/styles.scss';
+@import './table.scss';
+
+
+// .searching .pro-inner-item {
+.searching .pro-icon-wrapper {
+  border-style: solid;
+  border-color: #01c0ff !important;
+  border-width: 2px;
+
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+	transform: scale(1);
+  transition: border-width 0.6s ease-in-out;
+	animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(1);
+    border-width: 2px;
+    // margin: 2px;
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+	}
+
+	70% {
+		transform: scale(1.1);
+    border-width: 4px;
+    // margin: 1px;
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		transform: scale(1);
+    border-width: 2px;
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
+}
+
+.spinner {
+  animation: spin infinite 5s linear;
+
+  /*You can increase or decrease the timer (5s) to
+   increase or decrease the speed of the spinner*/
+
+}
+
+.peerlearn-joinleave-button {
+  margin: 5px
+}
+
+.waiting_for_confirmation .pro-icon-wrapper {
+  background-color: #72abff !important;
+}
+
+@keyframes spin {
+from {
+  transform: rotate(0deg);
+}
+to {
+  transform: rotate(360deg);
+}
+}
+
+#ace-editor {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  color: #353535;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+table {
+  @extend .table
+}
+
+.pro-sidebar.collapsed {
+  width:65px !important;
+  min-width: 65px !important;
+}
+
+// .pro-sidebar .pro-menu .pro-menu-item > .pro-inner-item
+
+.pro-icon {
+  animation: none !important;
+}
+
+.pro-menu {
+  padding-top:5px !important;
+  padding-bottom:5px !important;
+}
+
+.pro-menu-item.active {
+  .pro-icon {
+
+    background-color: white !important;
+    border-radius: 20px;
+    color:black
+  }
+}
+
+.pro-menu-item .pro-inner-item {
+  // default is...
+  // 8, 35, 8, 20
+  padding:4px 15px 4px 15px !important;
+}
+
+.markdownView {
+  pre {
+    font-size: 14px;
+  }
+}
+
+
+#root {
+  height: 100%;
+  overflow: auto;
+}
+
+.SplitPane {
+  position:relative !important;
+  min-height: 0px !important;
+}
+
+.bottomNav {
+  display:flex;
+  justify-content: space-between;
+  width:100%;
+  overflow: hidden;
+  height:100%;
+  align-items: center;
+}
+
+.Pane1  {
+  overflow:auto;
+}
+
+.Pane2 {
+  overflow:auto
+}
+
+.questionLeftPane {
+  display:flex;
+  flex-direction:column;
+}
+
+.questionLeftPane p {
+  text-align: left;
+}
+
+
+.btn-light:hover  {
+  color: #fff;
+  background-color: #e3e6ea !important;
+  border-color: #285e8e; /*set the color you want here*/
+}
+
+.explainBox {
+  flex-grow:2;
+  resize: none;
+  font-family: monospace;
+  background-color: #fdf9f3;
+  border-color: white;
+  font-size: smaller;
+}
+
+.explainBoxMobile {
+  font-family: monospace;
+  background-color: #fdf9f3;
+  border-color: white;
+  font-size: smaller;
+  height:300px;
+}
+
+
+/*
+Bordered:
+Style for a pre tag with text that should look like a
+console (aka terminal) */
+.bordered {
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 1px;
+  padding:10px;
+  overflow-y: hidden;
+  margin-bottom:10px;
+}
+
+.consoleBox {
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 1px;
+  padding:10px;
+  overflow-y: hidden;
+  height:0px; // this is a trick to make it scroll
+
+}
+
+@media (max-width:960px) {
+  .consoleBox {
+  }
+}
+
+
+
+/*
+I found the default navlink color too attention grabbing...
+*/
+.psetNav {
+  background-color: #72abff;
+  padding-left:10px;
+  padding-right: 10px;
+  height:45px;
+}
+
+.psetNavTitle {
+  font-weight: bold;
+  font-size: larger;
+}
+
+.tab-content {
+  flex-grow: 2;
+}
+
+.answerTab {
+  padding:14px;
+  background-color: white;
+  flex-direction: column;
+  height:100%;
+  width: 100%;
+  flex:2;
+  border-right: 1px solid #eee;
+  margin-bottom:10px;
+  padding-top:0px;
+  display: flex;
+}
+
+.standardAnswerPane {
+  border-right: 1px solid #eee;
+  height:100%;
+  flex:2;
+  display:flex;
+  flex-direction: column;
+}
+
+.numericAnswer {
+  border:none;
+  max-width: 200px;
+}
+.draftEditorWrapper{
+  flex-grow: 2;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  overflow-y: scroll;
+  border-color:#BBB
+}
+
+.draftEditorWrapper img {
+  max-width: 100%;
+}
+
+
+.katex { font-size: 1.1em; }
+
+.draftEditorContentWrapper {
+  padding:10px;
+  // padding-left:5px;
+  overflow:auto;
+  height:100%;
+  max-width: 670px;
+  // font-family: "Times New Roman", Times, serif;;
+  // font-size:19px;
+}
+
+.tab-pane {
+  height:100%;
+}
+
+/*
+purpleBox:
+*/
+.purpleBox {
+  padding:10px;
+  background-color: #EFF1FC;
+  border-radius:0.25rem;
+  overflow-y: auto;
+  text-align: justify;
+
+  img {
+    width:100%;
+  }
+}
+
+
+
+
+
+
+.app {
+  height: calc(100%  - 0px) ;
+  display: flex;
+  position: relative;
+
+  .content {
+    overflow-y:auto;
+    flex-grow:4;
+    height:100vh;
+  }
+
+  .btn-toggle {
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    background: #353535;
+    color: #fff;
+    text-align: center;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    display: none;
+  }
+
+  .sidebar-btn-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .sidebar-btn {
+      transition: width 0.3s;
+      width: 150px;
+      padding: 1px 15px;
+      border-radius: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #adadad;
+      text-decoration: none;
+      margin: 0 auto;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      span {
+        margin-left: 5px;
+        font-size: 13px;
+      }
+      &:hover {
+        color: $highlight-color;
+      }
+    }
+  }
+
+  .collapsed {
+    .sidebar-btn {
+      display: inline-block;
+      line-height: 40px;
+      padding: 0;
+    }
+  }
+
+  main {
+    padding: 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    header {
+      margin-bottom: 40px;
+      border-bottom: 1px solid #efefef;
+      h1 {
+        display: flex;
+        align-items: center;
+        transform: translateX(-20px);
+      }
+    }
+
+    footer {
+      margin-top: auto;
+      color: #888;
+      text-align: center;
+      a {
+        text-decoration: none;
+        color: #888;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  .social-bagdes {
+    margin-top: 10px;
+    img {
+      margin: 5px;
+    }
+  }
+
+  .block {
+    display: flex;
+    margin-bottom: 24px;
+    font-size: 14px;
+    color: #545454;
+    > span {
+      margin-left: 10px;
+    }
+  }
+
+
+
+  @media (max-width: 767.98px) {
+    overflow-x: hidden;
+    header {
+      h1 {
+        font-size: 24px;
+      }
+    }
+  }
+  @media (max-width: $breakpoint-md) {
+    .btn-toggle {
+      display: flex;
+    }
+
+    &.rtl {
+      .btn-toggle {
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+.markdownView {
+
+  img {
+    width:100%;
+  }
+}
+
+.TeXEditor-tex {
+
+  border-radius: 10px;
+}
+
+.Resizer {
+  background: #000;
+  opacity: 0.2;
+  z-index: 1;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
+}
+
+.Resizer:hover {
+  -webkit-transition: all 2s ease;
+  transition: all 2s ease;
+}
+
+.Resizer.horizontal {
+  height: 11px;
+  margin: -5px 0;
+  border-top: 5px solid rgba(255, 255, 255, 0);
+  border-bottom: 5px solid rgba(255, 255, 255, 0);
+  cursor: row-resize;
+  width: 100%;
+}
+
+.Resizer.horizontal:hover {
+  border-top: 5px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 5px solid rgba(0, 0, 0, 0.5);
+}
+
+.Resizer.vertical {
+  width: 11px;
+  margin: 0 -5px;
+  border-left: 5px solid rgba(255, 255, 255, 0);
+  border-right: 5px solid rgba(255, 255, 255, 0);
+  cursor: col-resize;
+}
+
+.Resizer.vertical:hover {
+  border-left: 5px solid rgba(0, 0, 0, 0.5);
+  border-right: 5px solid rgba(0, 0, 0, 0.5);
+}
+.Resizer.disabled {
+  cursor: not-allowed;
+}
+.Resizer.disabled:hover {
+  border-color: transparent;
+}
+
