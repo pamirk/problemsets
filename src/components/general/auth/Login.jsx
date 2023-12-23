@@ -3,6 +3,7 @@ import "firebase/auth";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import {auth} from "../../../firebaseApp.js";
 import {useParams} from 'react-router';
+import {Loading} from "../../loading/Loading.jsx";
 
 
 export const Login = () => {
@@ -18,7 +19,7 @@ export const Login = () => {
 
     return (
         <div className="d-flex flex-column align-items-center">
-            loading...
+            <Loading/>
             <StyledFirebaseAuth
                 uiConfig={{
                     signInOptions: [
