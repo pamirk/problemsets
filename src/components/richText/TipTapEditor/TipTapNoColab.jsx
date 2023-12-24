@@ -18,9 +18,9 @@ import StarterKit from "@tiptap/starter-kit";
 import Image from "@tiptap/extension-image";
 import Placeholder from "@tiptap/extension-placeholder";
 
-import {RunnableCode} from "./extensions/RunnableCode";
-import {InlineTex} from "./extensions/InlineTex";
-import {BlockTex} from "./extensions/BlockTex";
+import {RunnableCode} from "./extensions/RunnableCode.jsx";
+import {InlineTex} from "./extensions/InlineTex.jsx";
+import {BlockTex} from "./extensions/BlockTex.jsx";
 
 // yjs
 import './TipTap.scss';
