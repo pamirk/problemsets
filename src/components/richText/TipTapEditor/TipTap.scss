@@ -1,0 +1,130 @@
+.tiptapWrapper {
+  flex-grow:2;
+  display: flex;
+  flex-direction: column;
+}
+
+.editableWrapper{
+  padding:10px;
+}
+
+.tiptapContentWrapper {
+    height:0px;
+    overflow:auto;
+    flex-grow:2;
+    max-width: 670px;
+    // font-family: "Times New Roman", Times, serif;;
+    // font-size:19px;
+}
+.editor {
+    border-left: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+    border-radius: 0px 0px 5px;
+    
+  }
+
+  .ProseMirror-focused {
+    outline: none;
+  }
+  
+  .ProseMirror {
+    height:100%;
+    p {
+      margin: 0px;
+    }
+  
+    img {
+      max-width: 100%;
+    }
+  }
+  
+  /* Give a remote user a caret */
+  .collaboration-cursor__caret {
+    border-left: 1px solid #0d0d0d;
+    border-right: 1px solid #0d0d0d;
+    margin-left: -1px;
+    margin-right: -1px;
+    pointer-events: none;
+    position: relative;
+    word-break: normal;
+  }
+  
+  /* Render the username above the caret */
+  .collaboration-cursor__label {
+    border-radius: 3px 3px 3px 0;
+    color: #0d0d0d;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    left: -1px;
+    line-height: normal;
+    padding: 0.1rem 0.3rem;
+    position: absolute;
+    top: -1.4em;
+    user-select: none;
+    white-space: nowrap;
+  }
+  
+  .runnable-code {
+    position: relative;
+  
+    .content {
+      margin-top: 1.5rem;
+      padding: 1rem;
+    }
+  }
+  
+  .paper {
+    position: relative;
+  
+    .content {
+      margin-top: 1.5rem;
+      padding: 1rem;
+    }
+  }
+  
+  .paperCanvas {
+    background: #f8f8fa;
+    cursor: crosshair;
+    border-radius: 5px;
+  
+    path {
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  }
+  
+  .react-component-with-content {
+    background: #faf594;
+    border: 3px solid #0d0d0d;
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+    position: relative;
+  
+    .label {
+      margin-left: 1rem;
+      background-color: #0d0d0d;
+      font-size: 0.6rem;
+      letter-spacing: 1px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #fff;
+      position: absolute;
+      top: 0;
+      padding: 0.25rem 0.75rem;
+      border-radius: 0 0 0.5rem 0.5rem;
+    }
+  
+    .content {
+      margin: 2.5rem 1rem 1rem;
+      padding: 0.5rem;
+      border: 2px dashed #0d0d0d20;
+      border-radius: 0.5rem;
+    }
+  }
+
+.editor > div {
+  height:100%;
+}
