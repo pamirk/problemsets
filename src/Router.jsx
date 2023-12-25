@@ -10,6 +10,7 @@ import {GradingStudent} from './grading/GradingStudent'
 import PyodideProvider from "./components/pyodide/PyodideProvider";
 import {GradingStudentSummary} from "./grading/GradingStudentSummary.jsx";
 import {PSetHistory} from './pset/PSetHistory.jsx'
+import { PeerTeach } from "./peerTeach/PeerTeach.jsx";
 
 export const Router = () => {
 
@@ -31,6 +32,11 @@ export const Router = () => {
                 <Route path="/history/:qtrId/:psetId/:qId/:forcedStudentId?">
                     <PyodideProvider>
                         <Authenticated component={PSetHistory}/>
+                    </PyodideProvider>
+                </Route>
+                <Route path="/peerTeach/:qtrId/:psetId/:roomId/">
+                    <PyodideProvider>
+                        <Authenticated component={PeerTeach}/>
                     </PyodideProvider>
                 </Route>
                 <Route path="/:qtrId">
