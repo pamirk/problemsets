@@ -3,6 +3,7 @@ import useState from 'react-usestateref';
 
 
 import AceEditor from 'react-ace';
+import 'ace-builds/src-noconflict/ace';
 import 'ace-builds/src-noconflict/mode-latex';
 import 'ace-builds/src-noconflict/theme-textmate';
 import 'ace-builds/src-noconflict/theme-terminal';

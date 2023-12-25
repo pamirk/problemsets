@@ -17,7 +17,7 @@ import {PSetHome} from "./pset/PSetHome.jsx"
 import {PeerLearnPage} from "./components/colearning/PeerLearnPage.jsx";
 
 export const Router = () => {
-
+    console.log("Router");
     return (
         <BrowserRouter>
             <Switch>
@@ -46,13 +46,10 @@ export const Router = () => {
                 <Route path="/:qtrId/:psetId/print">
                     <Authenticated component={PSetPrint}/>
                 </Route>
-                <Route path="/:qtrId">
-                    <Route path="/:qtrId/:psetId/:qId/:forcedStudentId?">
-                        <PyodideProvider>
-                            <Authenticated component={PSetPage}/>
-                        </PyodideProvider>
-                    </Route>
-                    <Authenticated component={Home}/>
+                <Route path="/:qtrId/:psetId/:qId/:forcedStudentId?">
+                    <PyodideProvider>
+                        <Authenticated component={PSetPage}/>
+                    </PyodideProvider>
                 </Route>
                 <Route path="/:qtrId/:psetId/">
                     <Authenticated component={PSetHome}/>
@@ -60,7 +57,9 @@ export const Router = () => {
                 <Route path="/:qtrId/:psetId/peerlearnpage">
                     <Authenticated component={PeerLearnPage}/>
                 </Route>
-
+                <Route path="/:qtrId">
+                    <Authenticated component={Home}/>
+                </Route>
                 <Route path="/">
                     <HomeRedirect/>
                 </Route>

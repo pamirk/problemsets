@@ -18,6 +18,7 @@
     "@tiptap/extension-placeholder": "^2.1.13",
     "@tiptap/react": "^2.1.13",
     "@tiptap/starter-kit": "^2.1.13",
+    "ace-builds": "^1.32.2",
     "axios": "^1.6.2",
     "bootstrap": "^5.3.2",
     "bootstrap-switch-button-react": "^1.2.0",

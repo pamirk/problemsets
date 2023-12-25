@@ -2,6 +2,7 @@ import React, {useState, useEffect, useRef, useContext} from 'react';
 
 
 import AceEditor from 'react-ace';
+import 'ace-builds/src-noconflict/ace';
 import 'ace-builds/src-noconflict/mode-python';
 import 'ace-builds/src-noconflict/theme-cloud9_night';
 import 'ace-builds/src-noconflict/mode-plain_text';

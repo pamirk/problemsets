@@ -7,6 +7,7 @@ import firebase from "firebase"
 import {useDebounce} from "use-debounce";
 import {v4 as uuidv4} from "uuid";
 import * as awarenessProtocol from "y-protocols/awareness.js";
+import 'ace-builds/src-noconflict/ace';
 import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/theme-textmate";
 import "ace-builds/src-min-noconflict/ext-language_tools";

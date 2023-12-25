@@ -1,23 +1,17 @@
 import React, {createRef, useEffect, useRef} from 'react';
 import useState from 'react-usestateref';
-import firebase from "firebase";
-
-
-import AceEditor from 'react-ace';
+import 'ace-builds/src-noconflict/ace';
 import 'ace-builds/src-noconflict/mode-python';
 import 'ace-builds/src-noconflict/theme-textmate';
 import 'ace-builds/src-min-noconflict/ext-language_tools';
 import 'ace-builds/src-noconflict/snippets/python';
-import {FaICursor, FaPlay, FaStop, FaTerminal} from 'react-icons/fa';
 
 import katex from 'katex';
 
 
 // tiptap
-import { NodeViewContent, NodeViewWrapper } from '@tiptap/react'
-import { Node, mergeAttributes } from '@tiptap/core'
-import { ReactNodeViewRenderer } from '@tiptap/react'
-import { isEmpty } from '@firebase/util';
+import {NodeViewWrapper, ReactNodeViewRenderer} from '@tiptap/react'
+import {mergeAttributes, Node} from '@tiptap/core'
 
 /**
  * Notes: Controlling the cursor is very important. Specifically, when you set

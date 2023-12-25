@@ -6,6 +6,7 @@ import deepEqual from 'fast-deep-equal'
 
 
 import {v4 as uuidv4} from "uuid";
+import 'ace-builds/src-noconflict/ace';
 import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/theme-textmate";
 import "ace-builds/src-min-noconflict/ext-language_tools";

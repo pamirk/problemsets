@@ -1,5 +1,6 @@
 import {useContext, useEffect, useRef, useState} from 'react'
 import SplitPane from "react-split-pane";
+import 'ace-builds/src-noconflict/ace';
 import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/theme-textmate";
 import "ace-builds/src-min-noconflict/ext-language_tools";
