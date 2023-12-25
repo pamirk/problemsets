@@ -6,7 +6,7 @@ import {useLocation, useParams} from "react-router";
 import {auth, database, firestore} from "../../../firebaseApp.js";
 import {useDocumentData} from "react-firebase-hooks/firestore";
 import {Login} from "./Login.jsx";
-import {Loading} from "../../loading/Loading.jsx";
+import {Loading} from "../loading/Loading.jsx";
 
 export const UserMetaDataContext = createContext(undefined)
 
