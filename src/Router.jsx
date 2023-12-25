@@ -13,6 +13,7 @@ import {PSetPage} from "./pset/PSetPage.jsx"
 import {PSetPrint} from "./pset/PSetPrint.jsx"
 import {PSetHistory} from './pset/PSetHistory.jsx'
 import {PeerTeach} from "./peerTeach/PeerTeach.jsx";
+import {PSetHome} from "./pset/PSetHome.jsx"
 
 export const Router = () => {
 
@@ -51,6 +52,9 @@ export const Router = () => {
                         </PyodideProvider>
                     </Route>
                     <Authenticated component={Home}/>
+                </Route>
+                <Route path="/:qtrId/:psetId/">
+                    <Authenticated component={PSetHome}/>
                 </Route>
 
                 <Route path="/">
