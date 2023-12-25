@@ -1,3 +1,16 @@
+export const checkIsAdmin = function (userMetaData) {
+    if (!userMetaData) {
+        // you might not have any metadata
+        return false
+    }
+    if (!userMetaData.role) {
+        // you might not have a role
+        return false
+    } else {
+        // and you might not be admin
+        return userMetaData.role === 'admin'
+    }
+}
 export const getQuestionInfo = function (qId, publicQuestionInfo) {
     for (var i = 0; i < publicQuestionInfo.length; i++) {
         let q = publicQuestionInfo[i]
