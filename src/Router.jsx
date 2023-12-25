@@ -7,6 +7,7 @@ import {Home} from "./home/Home";
 import {GradingPage} from './grading/GradingPage'
 import {GradingStudent} from './grading/GradingStudent'
 import PyodideProvider from "./components/pyodide/PyodideProvider";
+import {GradingStudentSummary} from "./grading/GradingStudentSummary.jsx";
 
 export const Router = () => {
 
@@ -19,6 +20,11 @@ export const Router = () => {
                 <Route path="/grading/:qtrId/:psetId/:qId">
                     <Authenticated component={GradingPage}/>
                 </Route>
+
+                <Route path="/studentSummary/:qtrId/:psetId/:qId">
+                    <Authenticated component={GradingStudentSummary}/>
+                </Route>
+
                 <Route path="/:qtrId">
                     <Authenticated component={Home}/>
                 </Route>
