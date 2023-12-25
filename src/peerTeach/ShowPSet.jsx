@@ -5,7 +5,7 @@ import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/theme-textmate";
 import "ace-builds/src-min-noconflict/ext-language_tools";
 import "ace-builds/src-noconflict/snippets/python";
-import Markdown from '../components/rendering/Markdown.js'
+import Markdown from '../components/rendering/Markdown.jsx'
 import {firestore} from "../firebaseApp.js";
 
 export function ShowPSet(props) {
