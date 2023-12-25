@@ -14,7 +14,7 @@ import useSound from 'use-sound';
 import Music from "../components/colearning/positive_notification.mp3"
 import {joinRoom, PeerLearnPage} from '../components/colearning/PeerLearnPage.jsx';
 import {EVENT_TYPES, useEvents} from '../components/general/realtime/Events.js';
-import {useDebouncedCallback} from "use-debounce";
+import {useDebounce} from "use-debounce";
 
 /**
  * This is the main component for the pset page!
@@ -55,7 +55,7 @@ export const PSetPage = (props) => {
         }
     }
 
-    const [debounceNotification] = useDebouncedCallback(handleNotification, 60000, {leading: true, trailing: false});
+    const [debounceNotification] = useDebounce(handleNotification, 60000, {leading: true, trailing: false});
 
 
     let psetUrl = `psets/${qtrId}/${psetId}/public`
