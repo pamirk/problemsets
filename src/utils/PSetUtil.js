@@ -1,14 +1,14 @@
-export const checkIsPastDeadline = function(publicPsetData, studentPsetData) {
-  let currTime = new Date()
-  // user might not have this... field set
-  if(studentPsetData.extension){
-    const personalDueDate = new Date(studentPsetData.extension.dueDate);
-    return (currTime.getTime() > personalDueDate.getTime())
-  } else {
-    // check if it is past the grace period.
-    let gracePeriodDeadline = getGracePeriodDeadline(publicPsetData)
-    return (currTime.getTime() > gracePeriodDeadline.getTime())
-  }
+export const checkIsPastDeadline = function (publicPsetData, studentPsetData) {
+    let currTime = new Date()
+    // user might not have this... field set
+    if (studentPsetData.extension) {
+        const personalDueDate = new Date(studentPsetData.extension.dueDate);
+        return (currTime.getTime() > personalDueDate.getTime())
+    } else {
+        // check if it is past the grace period.
+        let gracePeriodDeadline = getGracePeriodDeadline(publicPsetData)
+        return (currTime.getTime() > gracePeriodDeadline.getTime())
+    }
 }
 export const checkIsAdmin = function (userMetaData) {
     if (!userMetaData) {
@@ -53,4 +53,31 @@ export const isEditorActive = function () {
         || activeClass.includes('consoleBox')
         || activeClass.includes('resourceInput')
         || activeClass.includes('ProseMirror')
+}
+
+export const getPreviousQuestionId = function (qId, publicQuestionInfo) {
+    for (var i = 0; i < publicQuestionInfo.length; i++) {
+        let currQ = publicQuestionInfo[i]
+        if (currQ['qId'] == qId) {
+            if (i == 0) {
+                return 'splash'
+            }
+            let lastQ = publicQuestionInfo[i - 1]
+            return lastQ['qId']
+        }
+    }
+    return ''
+}
+export const getNextQuestionId = function (qId, publicQuestionInfo) {
+    for (var i = 0; i < publicQuestionInfo.length; i++) {
+        let currQ = publicQuestionInfo[i]
+        if (currQ['qId'] == qId) {
+            if (i == publicQuestionInfo.length - 1) {
+                return 'submit'
+            }
+            let lastQ = publicQuestionInfo[i + 1]
+            return lastQ['qId']
+        }
+    }
+    return ''
 }
