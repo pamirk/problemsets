@@ -51,6 +51,7 @@
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.0.0",
     "sweetalert2": "^11.10.1",
+    "sweetalert2-react-content": "^4.2.0",
     "unified": "^11.0.4",
     "use-debounce": "^10.0.0",
     "uuid": "^9.0.1",
