@@ -1,0 +1,141 @@
+/*
+WARNING: this breaks CSS on login screen;
+label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    font-size: 1.2rem;
+}*/
+
+.description {
+    color: "gray";
+    margin-bottom: "0.6rem";
+}
+
+/* .form-label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  font-size: 1.2rem;
+} */
+
+
+.error {
+    color: red;
+    font-weight: lighter;
+}
+
+.text-input {
+    background: transparent;
+    padding: 0.65rem 0.5rem;
+    width: 100%;
+    font-size: 1rem;
+    border: none;
+    border-bottom: 1px solid lightgray;
+    border-radius: 1px;
+    outline: none;
+}
+
+.text-input::placeholder {
+    /*color: red;*/
+    color: #cdcdcd;
+}
+
+.text-input:focus {
+    /*background-color: red;*/
+    border-bottom: 1px solid dodgerblue;
+}
+
+.text-area-input {
+    width: 100%;
+    background: transparent;
+    outline: none;
+    border: 1px solid #e0e0e0;
+    padding: 8px;
+    border-radius: 5px;
+    height: 100px;
+}
+
+.text-area-input::placeholder {
+    color: #cdcdcd;
+}
+
+.text-area-input:focus {
+    border: 1px solid dodgerblue;
+}
+
+.select-input {
+    width: 300px;
+    max-width: 90vw;
+    border: 6px solid transparent;
+    border-radius: 3px;
+    background-color: #007bff;
+    /* background-color: #343a40;*/
+    color: white;
+
+    padding-left: 5px;
+
+    text-align: center;
+    outline: none;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; /* Remove default arrow */
+
+    background-repeat: no-repeat;
+    background-size: 0.5rem;
+    background-position: center right 0.5rem;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 125.304 125.304"><path d="M62.652 103.895L0 21.41h125.304" fill="%23ffffff"/></svg>');
+}
+
+.question-spacing {
+    margin-bottom: 30px;
+}
+
+.checkbox label {
+    display: flex;
+    align-items: center;
+    margin: 8px;
+    margin-bottom: 3px;
+    margin-left: 5px;
+    font-size: 1rem;
+}
+
+.checkbox label input {
+    margin-right: 10px;
+}
+
+.mult-checkbox-input input[type="checkbox"] {
+    margin-right: 6px;
+}
+
+.suggestions {
+    list-style-type: none;
+    padding-left: 5px;
+    overflow: scroll;
+    max-height: 200px;
+    border-bottom: 1px solid dodgerblue;
+}
+
+.suggestions li {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.suggestions li:hover {
+    cursor: default;
+    background: lightgray;
+}
+
+.radio label {
+    display: flex;
+    align-items: center;
+    margin: 8px;
+    margin-bottom: 3px;
+    margin-left: 5px;
+    font-size: 1rem;
+}
+
+.radio label input {
+    margin-right: 10px;
+}
