@@ -5,7 +5,7 @@ import {Question} from "./Question.jsx"
 import {useCollectionOnce, useDocumentData, useDocumentDataOnce,} from "react-firebase-hooks/firestore";
 import {useHistory, useParams} from "react-router-dom";
 import axios from 'axios'
-import API_ROUTE from "../ApiRoute.jsx"
+import API_ROUTE from "../ApiRoute.js"
 import {PSetSplash} from './PSetSplash.jsx';
 import {PSetPrint} from './PSetPrint.jsx';
 import Swal from 'sweetalert2'
