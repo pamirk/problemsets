@@ -9,8 +9,9 @@ import {GradingPage} from './grading/GradingPage'
 import {GradingStudent} from './grading/GradingStudent'
 import PyodideProvider from "./components/pyodide/PyodideProvider";
 import {GradingStudentSummary} from "./grading/GradingStudentSummary.jsx";
+import {PSetPrint} from "./pset/PSetPrint.jsx"
 import {PSetHistory} from './pset/PSetHistory.jsx'
-import { PeerTeach } from "./peerTeach/PeerTeach.jsx";
+import {PeerTeach} from "./peerTeach/PeerTeach.jsx";
 
 export const Router = () => {
 
@@ -38,6 +39,9 @@ export const Router = () => {
                     <PyodideProvider>
                         <Authenticated component={PeerTeach}/>
                     </PyodideProvider>
+                </Route>
+                <Route path="/:qtrId/:psetId/print">
+                    <Authenticated component={PSetPrint}/>
                 </Route>
                 <Route path="/:qtrId">
                     <Authenticated component={Home}/>
