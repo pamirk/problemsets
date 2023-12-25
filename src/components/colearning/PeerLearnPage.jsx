@@ -16,7 +16,7 @@ export const useQueueStatus = (quarter) => {
     useEffect(() => {
 
         database.ref(`/${quarter}/queueStatus`).on("value", (snap) => {
-            if(!snap.exists()) {
+            if (!snap.exists()) {
                 // throw(Error("There should definitely be a queueStatus"));
                 console.error("There should definitely be a queueStatus")
             } else {
@@ -34,14 +34,14 @@ export const joinRoom = (quarter, psetId, activeRoom) => {
     new_window.addEventListener('load', (event) => {
         console.log('new page is fully loaded');
     });
-  }
+}
 
 const useUserJoinedQueue = (quarter) => {
     const [user] = useAuthState(auth());
     const [userJoinedQueue, setUserJoinedQueue] = useState(undefined);
     useEffect(() => {
         database.ref(`/${quarter}/queue/${user.uid}`).on("value", (snap) => {
-            if(!snap.exists()) {
+            if (!snap.exists()) {
                 setUserJoinedQueue(false);
             } else {
                 setUserJoinedQueue(true);
@@ -53,12 +53,12 @@ const useUserJoinedQueue = (quarter) => {
 
 const askForNotifPerms = () => {
     // can either be "default" "granted" "denied"; default means they haven't picked perms yet
-    if(Notification.permission === "default") {
-      Notification.requestPermission().then((result) => {
-        console.log(result);
-      });
+    if (Notification.permission === "default") {
+        Notification.requestPermission().then((result) => {
+            console.log(result);
+        });
     }
-  }
+}
 
 const addToQueue = () => {
     functions.httpsCallable('addUserToQueue')({}).then((result) => {
@@ -102,7 +102,6 @@ const exitRoom = (roomId, dataUpdated, setDataUpdated) => {
 }
 
 
-
 const useActiveRoom = (quarter, uid) => {
     const [activeRoom, setActiveRoom] = useState(undefined);
 
@@ -118,10 +117,9 @@ const useActiveRoom = (quarter, uid) => {
 };
 
 
-
 export const PeerLearnPage = (props) => {
-    const { psetId, qtrId } = useParams() //TODO: idk what I am doing here
-    const { userMetaData } = props
+    const {psetId, qtrId} = useParams() //TODO: idk what I am doing here
+    const {userMetaData} = props
     const queueStatus = useQueueStatus(qtrId);
     const joined = useUserJoinedQueue(qtrId);
     const [dataUpdated, setDataUpdated] = useState(false)
@@ -133,7 +131,7 @@ export const PeerLearnPage = (props) => {
     // console.log('DATA: updated', dataUpdated)
     // console.log("histories", histories)
 
-    if(queueStatus === undefined || joined === undefined || activeRoom === undefined) {
+    if (queueStatus === undefined || joined === undefined || activeRoom === undefined) {
         return <div>loading...</div>
     }
 
@@ -144,65 +142,81 @@ export const PeerLearnPage = (props) => {
 
     return (
         <>
-        <FeedbackSurvey activeRoom={activeRoom} quarterId={qtrId} show={showFeedback} userId={uid} onSubmit={() => {
-            setShowFeedback(false)
-            exitRoom(activeRoom, dataUpdated, setDataUpdated)
-        }} />
-        {
-            checkIsAdmin(userMetaData)  ?
+            <FeedbackSurvey activeRoom={activeRoom} quarterId={qtrId} show={showFeedback} userId={uid} onSubmit={() => {
+                setShowFeedback(false)
+                exitRoom(activeRoom, dataUpdated, setDataUpdated)
+            }}/>
+            {
+                checkIsAdmin(userMetaData) ?
 
-        <AdminPanel
-            queueOpen={queueStatus['isOpen']}
-            nextOpenTimeUTC={queueStatus['nextOpenTimeUTC']}
-            nextCloseTimeUTC={queueStatus['nextCloseTimeUTC']}
-            quarterId={qtrId}
-        />
-        :
-            <div style={{maxWidth:800, textAlign:'center', padding:'20px', background:'white',height:'100vh'}}>
-            <h2>Peer Learning in CS109</h2>
-            <hr/>
-            { hasActiveRoom ?
-            <div className="alert alert-warning">
-                You are currently in a session.
-                <div>
-                    <Button className="peerlearn-joinleave-button" variant="primary" onClick={() => joinRoom(qtrId, psetId, activeRoom)}>Go to session</Button>
-                    {/* Get active room id and use that for the button */}
-                    <Button className="peerlearn-joinleave-button" variant="warning" onClick={() => {
-                        // await exitRoom(activeRoom, dataUpdated, setDataUpdated)
-                        setShowFeedback(true)
-                    }}>End session</Button>
-                </div>
-            </div>
-            :
-                    <QueueButton
+                    <AdminPanel
                         queueOpen={queueStatus['isOpen']}
                         nextOpenTimeUTC={queueStatus['nextOpenTimeUTC']}
                         nextCloseTimeUTC={queueStatus['nextCloseTimeUTC']}
-                        joined={joined}
-                        addToQueue={addToQueue}
-                        removeFromQueue={removeFromQueue}
+                        quarterId={qtrId}
                     />
+                    :
+                    <div style={{
+                        maxWidth: 800,
+                        textAlign: 'center',
+                        padding: '20px',
+                        background: 'white',
+                        height: '100vh'
+                    }}>
+                        <h2>Peer Learning in CS109</h2>
+                        <hr/>
+                        {hasActiveRoom ?
+                            <div className="alert alert-warning">
+                                You are currently in a session.
+                                <div>
+                                    <Button className="peerlearn-joinleave-button" variant="primary"
+                                            onClick={() => joinRoom(qtrId, psetId, activeRoom)}>Go to session</Button>
+                                    {/* Get active room id and use that for the button */}
+                                    <Button className="peerlearn-joinleave-button" variant="warning" onClick={() => {
+                                        // await exitRoom(activeRoom, dataUpdated, setDataUpdated)
+                                        setShowFeedback(true)
+                                    }}>End session</Button>
+                                </div>
+                            </div>
+                            :
+                            <QueueButton
+                                queueOpen={queueStatus['isOpen']}
+                                nextOpenTimeUTC={queueStatus['nextOpenTimeUTC']}
+                                nextCloseTimeUTC={queueStatus['nextCloseTimeUTC']}
+                                joined={joined}
+                                addToQueue={addToQueue}
+                                removeFromQueue={removeFromQueue}
+                            />
+                        }
+                        <div></div>
+                        <div className='card p-3 mt-5'>
+                            <h4>What is Peer Learning?</h4>
+                            <p style={{textAlign: "justify"}}>
+                                When the queue is open, you can sign up to work with another person in the course. We
+                                will either match you with a peer, or, if course staff is available you will get to talk
+                                to them. Once you sign up, it may take up to 5 mins to find a good pairing. After you
+                                are matched, we will put you into a virtual session with tools for you to collaborate.
+                                You should expect to spend around 15 minutes in the session.
+                            </p>
+
+                            <p style={{textAlign: "justify"}}>
+                                If you think you experienced a bug in any part of your peer learning experience, please
+                                let us know.
+                            </p>
+                            <a href="https://edstem.org/us/courses/29605/discussion/new" target="_blank"><Button>Bug
+                                Report</Button>
+                            </a>
+                        </div>
+                        <div></div>
+
+                        <div className=' mt-5'>
+                            {histories === undefined ? "loading..." :
+                                <Histories histories={histories} activeRoom={activeRoom} quarterId={qtrId}
+                                           psetId={psetId}
+                                           exitRoom={(roomId) => exitRoom(roomId, dataUpdated, setDataUpdated)}/>}
+                        </div>
+                    </div>
             }
-            <div></div>
-            <div className='card p-3 mt-5'>
-                <h4>What is Peer Learning?</h4>
-                <p style={{textAlign: "justify"}}>
-                When the queue is open, you can sign up to work with another person in the course. We will either match you with a peer, or, if course staff is available you will get to talk to them. Once you sign up, it may take up to 5 mins to find a good pairing. After you are matched, we will put you into a virtual session with tools for you to collaborate. You should expect to spend around 15 minutes in the session.
-                </p>
-
-                <p style={{textAlign: "justify"}}>
-                    If you think you experienced a bug in any part of your peer learning experience, please let us know.
-                </p>
-                <a href="https://edstem.org/us/courses/29605/discussion/new" target="_blank"><Button>Bug Report</Button>
-                </a>
-            </div>
-            <div></div>
-
-            <div className=' mt-5'>
-            {histories === undefined ? "loading..." : <Histories histories={histories} activeRoom={activeRoom} quarterId={qtrId} psetId={psetId} exitRoom={(roomId) => exitRoom(roomId, dataUpdated, setDataUpdated)}/> }
-            </div>
-            </div>
-        }
         </>
     )
 

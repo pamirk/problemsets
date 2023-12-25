@@ -14,6 +14,7 @@ import {PSetPrint} from "./pset/PSetPrint.jsx"
 import {PSetHistory} from './pset/PSetHistory.jsx'
 import {PeerTeach} from "./peerTeach/PeerTeach.jsx";
 import {PSetHome} from "./pset/PSetHome.jsx"
+import {PeerLearnPage} from "./components/colearning/PeerLearnPage.jsx";
 
 export const Router = () => {
 
@@ -55,6 +56,9 @@ export const Router = () => {
                 </Route>
                 <Route path="/:qtrId/:psetId/">
                     <Authenticated component={PSetHome}/>
+                </Route>
+                <Route path="/:qtrId/:psetId/peerlearnpage">
+                    <Authenticated component={PeerLearnPage}/>
                 </Route>
 
                 <Route path="/">
