@@ -81,3 +81,14 @@ export const getNextQuestionId = function (qId, publicQuestionInfo) {
     }
     return ''
 }
+export const getGracePeriodDeadline = function (publicPsetData) {
+    // if there is a specified grace period deadline, use that
+    if (publicPsetData.grace) {
+        return new Date(publicPsetData.grace)
+    }
+    // otherwise the default is 24 hours!
+    const standardDeadline = new Date(publicPsetData.due)
+    var gracePeriodDeadline = standardDeadline;
+    gracePeriodDeadline.setHours(gracePeriodDeadline.getHours() + 24)
+    return gracePeriodDeadline
+}
