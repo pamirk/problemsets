@@ -1,3 +1,15 @@
+export const checkIsPastDeadline = function(publicPsetData, studentPsetData) {
+  let currTime = new Date()
+  // user might not have this... field set
+  if(studentPsetData.extension){
+    const personalDueDate = new Date(studentPsetData.extension.dueDate);
+    return (currTime.getTime() > personalDueDate.getTime())
+  } else {
+    // check if it is past the grace period.
+    let gracePeriodDeadline = getGracePeriodDeadline(publicPsetData)
+    return (currTime.getTime() > gracePeriodDeadline.getTime())
+  }
+}
 export const checkIsAdmin = function (userMetaData) {
     if (!userMetaData) {
         // you might not have any metadata
