@@ -54,6 +54,7 @@
     "sweetalert2-react-content": "^4.2.0",
     "unified": "^11.0.4",
     "use-debounce": "^10.0.0",
+    "use-sound": "^4.0.1",
     "uuid": "^9.0.1",
     "y-protocols": "^1.0.6",
     "y-webrtc": "^10.2.6",

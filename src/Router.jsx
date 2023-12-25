@@ -9,6 +9,7 @@ import {GradingPage} from './grading/GradingPage'
 import {GradingStudent} from './grading/GradingStudent'
 import PyodideProvider from "./components/pyodide/PyodideProvider";
 import {GradingStudentSummary} from "./grading/GradingStudentSummary.jsx";
+import {PSetPage} from "./pset/PSetPage.jsx"
 import {PSetPrint} from "./pset/PSetPrint.jsx"
 import {PSetHistory} from './pset/PSetHistory.jsx'
 import {PeerTeach} from "./peerTeach/PeerTeach.jsx";
@@ -44,6 +45,11 @@ export const Router = () => {
                     <Authenticated component={PSetPrint}/>
                 </Route>
                 <Route path="/:qtrId">
+                    <Route path="/:qtrId/:psetId/:qId/:forcedStudentId?">
+                        <PyodideProvider>
+                            <Authenticated component={PSetPage}/>
+                        </PyodideProvider>
+                    </Route>
                     <Authenticated component={Home}/>
                 </Route>
 
